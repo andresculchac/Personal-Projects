@@ -1,0 +1,39 @@
+#Este programa esta hecho con la librería Pyautogui, me sirvio de mucha útilidad cuando Yeferson Cossio hizo un sorteo de una casa y me ayudo automatizar los comentarios de la publicación, porque entre mas comentara era mejor
+#Aunque tiene su limite porque la misma aplicación en determinado tiempo te va a tachar de spam, asi que dura como 17 horas
+#Si tuviera que agregarle cambios despues sería que recargara la pagina constantemente y agregar mas palabras y que el tiempo de comentar tambien fuera variando, para evitar ser detectado por spam
+import pyautogui
+import time 
+import random
+
+
+#Give the time #
+#
+#Tamaño de la pantalla 1920*1080
+#print(pyautogui.size())
+#Find the position on the screen
+#print(pyautogui.position())
+
+#move the mouse over time
+##pyautogui.moveTo(100,300)
+
+#Se mueve automaticamente despues asi que good
+#pyautogui.moveRel(100,100,3)
+#Scroll
+#pyautogui.scroll(-100,3)
+
+
+#Primero descubrir donde esta
+# la seccion de comentarios
+#Point(x=1282, y=979)
+PalabrasRamdoms = ["hola ", "quiero ", "ser ", "ganador ", "casa ", "premio ", "anhelo ", "quiero mi casa ", "leal ", "amable ", "respuestuoso "]
+
+
+while True: #Ciclo infinito para que no pare de comentar
+    time.sleep(800) #Cantidad de tiempo para que se repita el ciclo
+    for i in range(10): #Cantidad de veces de comentarios
+        time.sleep(2) #Una espera de dos segundos por cada comentario
+        pyautogui.moveTo(1282,979) 
+        pyautogui.doubleClick()
+        pyautogui.write(random.choice(PalabrasRamdoms))
+        pyautogui.write(random.choice(PalabrasRamdoms))
+        pyautogui.press("Enter")
